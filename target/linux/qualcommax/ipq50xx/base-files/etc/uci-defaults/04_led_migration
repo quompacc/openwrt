@@ -1,0 +1,13 @@
+. /lib/functions/migrations.sh
+
+board=$(board_name)
+
+case "$board" in
+tplink,re700x)
+	migrate_leds ":wlan2g=:wlan-2ghz" ":wlan5g=:wlan-5ghz"
+	;;
+esac
+
+migrations_apply system
+
+exit 0
